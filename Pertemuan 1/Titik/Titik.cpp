@@ -1,4 +1,4 @@
-// Nama/NIM  : Amelia Aristianti/14060124120008
+// Nama/NIM  : Amelia Aristianti/24060124120008
 // Deskripsi : Membuat TItik
 
 #include <gl/glut.h>
