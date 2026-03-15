@@ -1,4 +1,4 @@
-// Nama/NIM  : Amelia Aristianti/25060124120008
+// Nama/NIM  : Amelia Aristianti/24060124120008
 // Deskripsi : Membuat Segitiga
 
 #include <gl/glut.h>
