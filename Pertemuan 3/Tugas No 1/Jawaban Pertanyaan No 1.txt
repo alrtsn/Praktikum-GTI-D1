@@ -1,0 +1,61 @@
+JAWABAN NO 1 - Praktikum GTI - Pertemuan 3
+
+A). CARA KERJA KODE LENGAN BERGERAK
+1. Variabel global:
+   - shoulder: rotasi bahu (dalam derajat)
+   - elbow: rotasi siku (dalam derajat)
+
+2. Fungsi display():
+   - Gambar lengan atas: translasi ke (-1,0,0) -> rotasi shoulder -> translasi ke (1,0,0) -> gambar kubus skala (2.0, 0.4, 1.0)
+   - Gambar lengan bawah: translasi ke (1,0,0) -> rotasi elbow -> translasi ke (1,0,0) -> gambar kubus skala (2.0, 0.4, 1.0)
+
+3. Keyboard control:
+   - s/S: bahu naik/turun (nambah/kurang 5°)
+   - e/E: siku tekuk/lurus (nambah/kurang 5°)
+   - ESC: keluar program
+
+4. Fungsi Idle():
+   - Bikin kubus muter otomatis (xRotated, yRotated, zRotated)
+
+5. Proyeksi (reshape):
+   - gluPerspective(40°-65°) buat efek 3D
+   - glViewport(0,0,x,y) buat area gambar
+
+6. Alur program:
+   - Tekan tombol -> nilai sudut berubah -> glutPostRedisplay() -> display() gambar ulang
+
+B). CARA KERJA KODE LENGAN + JARI (Berdasarkan Kode di Tugas No 2 yg saya buat)
+1. Variabel global:
+   - shoulder, shoulderY: rotasi bahu (sumbu Z dan Y)
+   - elbow: rotasi siku (sumbu Z)
+   - fingerAngles[5][2]: nyimpen tekukan 5 jari (masing2 2 ruas)
+
+2. Fungsi display():
+   - Lengan atas: translasi ke titik bahu -> rotasi shoulder -> translasi balik -> kubus (2.0,0.4,0.8)
+   - Lengan bawah: translasi ke siku -> rotasi elbow -> translasi balik -> kubus (1.8,0.35,0.7)
+   - Telapak tangan: kubus (0.8,0.4,0.9)
+   - Jari: panggil drawFinger() untuk 4 jari, jari tengah manual
+
+3. Fungsi drawFinger():
+   - Parameter posisi (tx,ty,tz) dan spread (buat jempol biar nyamping)
+   - Gambar 2 ruas jari pake kubus (panjang 0.4, tebal 0.15)
+   - Setiap ruas dirotate sesuai fingerAngles[idx]
+
+4. Keyboard control:
+   - s/S: bahu naik/turun (±5°)
+   - z/Z: bahu muter kiri/kanan (±5°)
+   - e/E: siku tekuk/lurus (±5°)
+   - 1/! : jempol tekuk/lurus (±10°)
+   - 2/@ : telunjuk tekuk/lurus (±10°)
+   - 3/# : jari tengah tekuk/lurus (±10°)
+   - 4/$ : jari manis tekuk/lurus (±10°)
+   - 5/% : kelingking tekuk/lurus (±10°)
+   - R/r : reset semua jari ke 0°
+   - ESC: keluar
+
+5. Proyeksi (reshape):
+   - gluPerspective(65°) buat sudut pandang 3D
+   - glTranslatef(0,0,-6) buat zoom out
+
+6. Alur program:
+   - Tekan tombol -> nilai sudut berubah -> glutPostRedisplay() -> display() gambar ulang
